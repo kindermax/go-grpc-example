@@ -1,0 +1,19 @@
+version: '3.7'
+
+services:
+  grpc: &grpc
+    image: grpc-tools
+    volumes:
+    - ./:/try-grpc
+
+  grpc-gen:
+    <<: *grpc
+    user: ${CURRENT_UID}
+    command: |
+      sh -c "
+        # generate stub files
+        protoc -I /try-grpc --go_out=/ /try-grpc/internal/proto-files/domain/repository.proto
+
+        # plugins=grpc will add special methods required to run grpc service
+        protoc -I /try-grpc --go_out=plugins=grpc:/ /try-grpc/internal/proto-files/service/repository-service.proto
+      "
