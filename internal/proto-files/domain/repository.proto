@@ -2,7 +2,7 @@ syntax = "proto3";
 
 package domain;
 
-option go_package = "try-grpc/internal/grpc/domain";
+option go_package = "go-grpc-example/internal/grpc/domain";
 
 message Repository {
     int64 id  = 1;

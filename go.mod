@@ -1,4 +1,4 @@
-module try-grpc
+module go-grpc-example
 
 go 1.13
 

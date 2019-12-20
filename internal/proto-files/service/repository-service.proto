@@ -2,7 +2,7 @@ syntax = "proto3";
 
 package service;
 
-option go_package = "try-grpc/internal/grpc/service";
+option go_package = "go-grpc-example/internal/grpc/service";
 
 import "internal/proto-files/domain/repository.proto";
 

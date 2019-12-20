@@ -5,8 +5,8 @@ import (
 	"log"
 	"net"
 	"google.golang.org/grpc"
-	"try-grpc/internal/grpc/impl"
-	"try-grpc/internal/grpc/service"
+	"go-grpc-example/internal/grpc/impl"
+	"go-grpc-example/internal/grpc/service"
 )
 
 func main() {

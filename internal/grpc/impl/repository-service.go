@@ -4,8 +4,8 @@ import (
 	"context"
 	"log"
 	"strconv"
-	"try-grpc/internal/grpc/domain"
-	"try-grpc/internal/grpc/service"
+	"go-grpc-example/internal/grpc/domain"
+	"go-grpc-example/internal/grpc/service"
 )
 
 

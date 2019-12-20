@@ -6,12 +6,12 @@ import (
 	"log"
 	"net"
 	"google.golang.org/grpc"
-	"try-grpc/internal/grpc/domain"
-	"try-grpc/internal/grpc/service"
+	"go-grpc-example/internal/grpc/domain"
+	"go-grpc-example/internal/grpc/service"
 )
 
 func main() {
-	serverAddress := "localhost:7000"
+	serverAddress := "server:7000"
 	conn, e := grpc.Dial(serverAddress, grpc.WithInsecure())
 	if e != nil {
 		log.Fatalf("Can not connect to server %s, %s", serverAddress, e)

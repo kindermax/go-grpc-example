@@ -4,7 +4,7 @@ services:
   grpc: &grpc
     image: grpc-tools
     volumes:
-    - ./:/try-grpc
+    - ./:/go-grpc-example
 
   grpc-gen:
     <<: *grpc
@@ -12,8 +12,16 @@ services:
     command: |
       sh -c "
         # generate stub files
-        protoc -I /try-grpc --go_out=/ /try-grpc/internal/proto-files/domain/repository.proto
+        protoc -I /go-grpc-example --go_out=/ /go-grpc-example/internal/proto-files/domain/repository.proto
 
         # plugins=grpc will add special methods required to run grpc service
-        protoc -I /try-grpc --go_out=plugins=grpc:/ /try-grpc/internal/proto-files/service/repository-service.proto
+        protoc -I /go-grpc-example --go_out=plugins=grpc:/ /go-grpc-example/internal/proto-files/service/repository-service.proto
       "
+
+  server:
+    image: go-grpc-example
+    command: go run cmd/grpc/server/main.go
+
+  client:
+    image: go-grpc-example
+    command: go run cmd/grpc/client/main.go
